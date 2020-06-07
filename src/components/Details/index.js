@@ -21,7 +21,7 @@ const Details = () => {
         <TypeTitle>Uberx</TypeTitle>
         <TypeDescription>R$12,00</TypeDescription>
 
-        <RequestButton onPress={() => {}}>
+        <RequestButton onPress={() => {alert("Pra vc é gratis BB")}}>
             <RequestButtonText>SOLICITAR UBERX</RequestButtonText>
         </RequestButton>
     </Container>);

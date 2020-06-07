@@ -10,7 +10,7 @@ import Search from '../Search';
 import Directions from '../Directions';
 import Details from '../Details';
 
-import markerImage from '../../assets/marker.png';
+import markerImage from '../../assets/car.jpg';
 import backImage from '../../assets/back.png';
 
 import {
@@ -38,7 +38,7 @@ const Map = () => {
             title: data.structured_formatting.main_text,
         });
     };
-
+        
     const backHandler = () => {
         setDestination(null);
     };
@@ -122,7 +122,13 @@ const Map = () => {
 
             {destination ? (
                 <Fragment>
-                    <Back onPress={backHandler}>
+                    <Back onPress={()=>{
+                        let lat = destination.latitude;
+                        let lon = destination.longitude;
+                        lat += 0.001;
+                        lon += 0.001;
+                        setDestination({...destination, latitude:lat, longitude:lon});
+                    }}>
                         <Image source={backImage} />
                     </Back>
                     <Details />
